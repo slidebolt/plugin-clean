@@ -33,6 +33,7 @@ func (a *App) Hello() contract.HelloResponse {
 		ContractVersion: contract.ContractVersion,
 		Definitions:     contract.DescribePlugin("Clean", "Provides reference devices used to verify shared domain contracts.", "light", "sensor", "switch"),
 		DependsOn:       []string{"messenger", "storage"},
+		Setup:           contract.DevelopmentSetup("Development"),
 	}
 }
 
