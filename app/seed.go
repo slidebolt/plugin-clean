@@ -7,6 +7,10 @@ import (
 )
 
 func (a *App) seedDemo() error {
+	device := domain.Device{ID: "demo_device", Plugin: PluginID, Name: "Demo Device", Entities: []domain.Entity{}}
+	if err := a.store.Save(device); err != nil {
+		return fmt.Errorf("save demo device: %w", err)
+	}
 	entities := []domain.Entity{
 		{
 			ID: "demo_light", Plugin: PluginID, DeviceID: "demo_device",
